@@ -1,35 +1,31 @@
 # ***opensource***
 ***
- >opensource
->>내가 직접 코딩한~ 하노이 소스코드!
+ >선택장애가 있는 사람들을 위한 투표 시스템
+>>
 
-```C
-#include<stdio.h>
-
-int cnt = 0;
-
-void hanoi_tower(int n, char from, char temp, char to)
-{
-        if (n==1)
-        {
-                printf("(%d) %d원판이 %c 에서 %c로 이동\n",++cnt, n, from, to);
-        }
-        else{
-                hanoi_tower(n-1, from, to, temp);
-                printf("(%d) %d원판이 %c에서 %c로 이동\n", ++cnt, n, from, to);
-                hanoi_tower(n-1, temp, from, to);
-
-        }
-}
+```#include<stdio.h>
+#define SIZE 11
 
 int main(void)
 {
-        hanoi_tower(5,'A','B','C');
-        return 0;
+ int freq[SIZE]={0};
+ int i, cand;
+
+ while(1)
+ {
+  printf("몇번후보를 선택하시겠습니까?(종료-1): ");
+  scanf("%d",&cand);
+  if(cand<=0)break;
+  freq[cand]++;
+ }
+ printf("값 득표결과\n");
+ for(i=1;i<SIZE;i++)
+  printf("%3d    %3d\n",i,freq[i]);
+ return 0;
 }
 ```
 
 [구글링크](https://www.google.co.kr/)
 
 
-[참고용 하노이 소스코드](https://claris.tistory.com/24)
+[소스코드 출처](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=gydlf822&logNo=90156682104)
